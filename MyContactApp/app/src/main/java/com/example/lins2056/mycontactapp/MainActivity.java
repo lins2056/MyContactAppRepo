@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
 
     DatabaseHelper myDb;
     EditText editName;
+    EditText editAge;
+    EditText editPhone;
     Button btnAddData;
 
 
@@ -26,10 +28,12 @@ public class MainActivity extends AppCompatActivity {
         myDb = new DatabaseHelper(this);
 
         editName = (EditText) findViewById(R.id.editText_name);
+        editAge = (EditText) findViewById(R.id.editText_age);
+        editPhone = (EditText) findViewById(R.id.editText_phonenumber);
     }
 
     public void addData(View v) {
-        boolean isInserted = myDb.insertData(editName.getText().toString());
+        boolean isInserted = myDb.insertData(editName.getText().toString(), editAge.getText().toString(), editPhone.getText().toString());
         if(isInserted == true){
             Log.d("MyContact", "Data insertion successful");
             //create toast message to user indicating data inserted correctly

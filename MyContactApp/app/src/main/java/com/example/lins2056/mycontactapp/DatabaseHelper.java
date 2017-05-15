@@ -14,6 +14,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String TABLE_NAME = "Contact_table";
     public static final String COL_1 = "ID";
     public static final String COL_2 = "NAME";
+    public static final String COL_3 = "AGE";
+    public static final String COL_4 = "PHONE NUMBER";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -31,10 +33,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean  insertData(String name){
+    public boolean  insertData(String name, String age, String phone){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2, name);
+        contentValues.put(COL_3, age);
+        contentValues.put(COL_4, phone);
 
         long result = db.insert(TABLE_NAME, null, contentValues);
         if(result == -1) return false;
