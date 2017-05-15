@@ -11,7 +11,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="NAME:"
         android:id="@+id/textView"
-        android:layout_marginTop="127dp"
+        android:layout_marginTop="86dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
 
@@ -29,6 +29,44 @@
         android:text="Add Data"
         android:id="@+id/button_add"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="addData" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="AGE:"
+        android:id="@+id/textView2"
+        android:layout_marginTop="73dp"
+        android:layout_below="@+id/editText_name"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_age"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignEnd="@+id/editText_name"
+        android:layout_toEndOf="@+id/textView2"
+        android:layout_alignStart="@+id/editText_name" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="PHONE NUMBER:"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="82dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_phonenumber"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/textView3" />
 
 </RelativeLayout>
