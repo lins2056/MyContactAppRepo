@@ -1,5 +1,6 @@
 package com.example.lins2056.mycontactapp;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.database.Cursor;
 import android.support.v7.app.ActionBarActivity;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     EditText editName;
     EditText editAge;
     EditText editPhone;
+    EditText searchName;
     Button btnAddData;
 
 
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         editName = (EditText) findViewById(R.id.editText_name);
         editAge = (EditText) findViewById(R.id.editText_age);
         editPhone = (EditText) findViewById(R.id.editText_phonenumber);
+        searchName = (EditText)findViewById(R.id.editText_searchn);
     }
 
     public void addData(View v) {
@@ -68,20 +71,30 @@ public class MainActivity extends AppCompatActivity {
         //setup loop with Cursor moveToNext method
         // append each COL to the buffer
         //use getString method
-        //FIX INCOMPLETE
-        int i = 0;
+        //FIX INCOMPLET
         while(res.moveToNext()){
-            buffer.append(res.getString(i));
-            i++;
+            buffer.append("ID: " + res.getString(0) + "\n");
+            buffer.append("NAME: " + res.getString(1) + "\n");
+            buffer.append("AGE: " + res.getString(2) + "\n");
+            buffer.append("PHONE NUMBER: " + res.getString(3) + "\n\n");
         }
-        Log.d("MyContact", String.valueOf(buffer));
+
+        Log.d("MyContact", buffer.toString());
 
         showMessage("Data", buffer.toString());
 
     }
 
     private void showMessage(String title, String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true); //cancel using back button
+        builder.setTitle(title);
+        builder.setMessage(message);
+        builder.show();
 
+    }
+
+    public void searchName(View v){
 
     }
 
