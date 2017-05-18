@@ -71,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
         //setup loop with Cursor moveToNext method
         // append each COL to the buffer
         //use getString method
-        //FIX INCOMPLET
         while(res.moveToNext()){
             buffer.append("ID: " + res.getString(0) + "\n");
             buffer.append("NAME: " + res.getString(1) + "\n");
@@ -94,7 +93,16 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void searchName(View v){
+    public void search(View v){
+        Cursor res = myDb.findData(searchName);
+        StringBuffer buff = new StringBuffer();
+        buff.append("ID: " + res.getString(0) + "\n");
+        buff.append("NAME: " + res.getString(1) + "\n");
+        buff.append("AGE: " + res.getString(2) + "\n");
+        buff.append("PHONE NUMBER: " + res.getString(3) + "\n\n");
+
+        Log.d("MyContact", buff.toString());
+        showMessage("Found Contact", buff.toString());
 
     }
 

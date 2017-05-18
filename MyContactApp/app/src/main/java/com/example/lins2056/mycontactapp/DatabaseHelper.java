@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.EditText;
 
 /**
  * Created by lins2056 on 5/11/2017.
@@ -49,6 +50,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Cursor getAllData(){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select * from " + TABLE_NAME, null);
+        return res;
+    }
+
+    public Cursor findData(EditText inputsearch){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from " + TABLE_NAME + " where " + COL_2 + " =? ", new String[]{inputsearch.toString()});
         return res;
     }
 }
