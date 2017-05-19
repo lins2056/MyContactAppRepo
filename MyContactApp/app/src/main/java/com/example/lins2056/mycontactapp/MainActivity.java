@@ -94,16 +94,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void search(View v){
+
         Cursor res = myDb.findData(searchName);
-        StringBuffer buff = new StringBuffer();
-        buff.append("ID: " + res.getString(0) + "\n");
-        buff.append("NAME: " + res.getString(1) + "\n");
-        buff.append("AGE: " + res.getString(2) + "\n");
-        buff.append("PHONE NUMBER: " + res.getString(3) + "\n\n");
+        if(res.getCount() == 0){
+            showMessage("Error", "Data not found");
+        }
+        else {
+            StringBuffer buff = new StringBuffer();
+            res.moveToNext();
+            buff.append("ID: " + res.getString(0) + "\n");
+            buff.append("NAME: " + res.getString(1) + "\n");
+            buff.append("AGE: " + res.getString(2) + "\n");
+            buff.append("PHONE NUMBER: " + res.getString(3) + "\n\n");
 
-        Log.d("MyContact", buff.toString());
-        showMessage("Found Contact", buff.toString());
-
+            Log.d("MyContact", buff.toString());
+            showMessage("Found Contact", buff.toString());
+        }
     }
 
 }

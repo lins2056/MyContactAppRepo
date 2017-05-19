@@ -55,7 +55,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Cursor findData(EditText inputsearch){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from " + TABLE_NAME + " where " + COL_2 + " =? ", new String[]{inputsearch.toString()});
+        Cursor res = db.rawQuery("select * from " + TABLE_NAME + " where " + COL_2 + " =? ", new String[]{inputsearch.getText().toString()});
         return res;
     }
 }
