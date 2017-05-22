@@ -54,7 +54,10 @@ public class MainActivity extends AppCompatActivity {
             //create toast message to user indicating data inserted incorrectly
             Toast.makeText(getApplicationContext(), "Data insertion unsuccessful", Toast.LENGTH_SHORT).show();
         }
-
+        //clear spaces
+        editName.setText("");
+        editAge.setText("");
+        editPhone.setText("");
     }
 
     public void viewData(View v){
